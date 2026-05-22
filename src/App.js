@@ -22,12 +22,7 @@ function App() {
         <div className="container">
             <h1>To-Do App</h1>
             <NewTask dispatch={dispatch} />
-            {tasks.map(item => (
-                <div key={item.id}>
-                    <h3>{item.text}</h3>
-                    <p>{item.date}</p>
-                </div>
-            ))}
+            <ShowTasks tasks={tasks} />
         </div>
     );
 }
