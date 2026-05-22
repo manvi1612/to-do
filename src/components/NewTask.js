@@ -2,27 +2,24 @@ import { useState } from "react";
 
 function NewTask({ dispatch }) {
     const [taskName, setTaskName] = useState("");
-
-    function addTask(e) {
+    function addTask(event) {
         event.preventDefault();
-        if (task === "") return;
+        if (taskName === "") return;
         dispatch({
             type: "ADD",
             Data: {
-                id: Date.now(),
-                text: task,
-                completed: false,
+                text: taskName,
                 date: new Date().toLocaleString()
             }
         });
-        setText("");
+        setTaskName("");
     }
     return (
         <form onSubmit={addTask}>
             <input
                 type="text"
-                value={task}
-                onChange={(event) => setText(event.target.value)}
+                value={taskName}
+                onChange={(event) => setTaskName(event.target.value)}
                 placeholder="Enter task"/>
             <button>Add Task</button>
         </form>
