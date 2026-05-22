@@ -1,6 +1,7 @@
 import { useReducer } from "react";
 import NewTask from "./components/NewTask";
 
+
 function reducer(list, action) {
   switch(action.type) {
     case "ADD":
@@ -10,10 +11,15 @@ function reducer(list, action) {
   }
 }
 
+const saved = JSON.parse(localStorage.getItem("tasks")) || [];
+
 function App() {
-    const [tasks, dispatch] = useReducer(reducer, []);
+    const [tasks, dispatch] = useReducer(reducer, saved);
+     useEffect(() => {
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+    }, [tasks]);
     return (
-        <div>
+        <div className="container">
             <h1>To-Do App</h1>
             <NewTask dispatch={dispatch} />
             {tasks.map(item => (

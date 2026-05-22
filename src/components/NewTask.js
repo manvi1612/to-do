@@ -1,13 +1,14 @@
 import { useState } from "react";
 
-function NewTask({ dispatch }) {
+function NewTask({ props }) {
     const [taskName, setTaskName] = useState("");
     function addTask(event) {
         event.preventDefault();
         if (taskName === "") return;
-        dispatch({
+        props.dispatch({
             type: "ADD",
             Data: {
+                id: Date.now(),
                 text: taskName,
                 date: new Date().toLocaleString()
             }
