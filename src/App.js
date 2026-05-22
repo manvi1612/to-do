@@ -1,5 +1,6 @@
 import { useReducer, useEffect } from "react";
 import NewTask from "./components/NewTask";
+import ShowTasks from "./components/ShowTasks";
 
 
 function reducer(list, action) {
