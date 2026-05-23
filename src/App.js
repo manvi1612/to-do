@@ -43,8 +43,9 @@ const saved = JSON.parse(localStorage.getItem("tasks")) || [];
 
 
 function App() {
-    const [tasks, dispatch] = useReducer(reducer, saved);
+    const [tasks, dispatch] = useReducer(reducer, []);
     const [editId, setEditId] = useState(null);
+    
      useEffect(() => {
         localStorage.setItem("tasks", JSON.stringify(tasks));
     }, [tasks]);
