@@ -19,6 +19,7 @@ function NewTask(props) {
             Data: {
                 id: Date.now(),
                 text: taskName,
+                completed: false,
                 date: new Date().toLocaleString()
             }
         });

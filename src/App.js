@@ -10,9 +10,13 @@ function reducer(list, action) {
     case "COMPLETE":
       return list.map(function(item) {
         if (item.id === action.id) {
-            item.completed = !item.completed;
-        }
-        return item;
+           return {
+        ...item,
+        completed: !item.completed
+      };
+    }
+
+    return item;
     });
 
     case "EDIT":

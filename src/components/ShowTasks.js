@@ -6,7 +6,9 @@ function ShowTasks(props) {
         <div>
             {props.tasks.map((item) => (
                 <div key={item.id}>
-                    <h3>{item.text}</h3>
+                    <h3 className={item.completed ? "completed" : ""}>
+  {item.text}
+</h3>
                     <p>{item.date}</p>
                   <FontAwesomeIcon
                         icon={faCheck}
@@ -17,7 +19,6 @@ function ShowTasks(props) {
                         icon={faPen}
                          onClick={() => {
                             props.setEditId(item.id);
-                            props.setEditValue?.(item.text)
                         }}/>
                     <FontAwesomeIcon
                         icon={faTrash}
