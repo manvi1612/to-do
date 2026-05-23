@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faCheck } from "@fortawesome/free-solid-svg-icons";
+import {faCheck, faPen } from "@fortawesome/free-solid-svg-icons";
 
 function ShowTasks(props) {
     return (
@@ -13,6 +13,14 @@ function ShowTasks(props) {
                         onClick={() =>
                             props.dispatch({ type: "COMPLETE", id: item.id })
                         }/>
+                    <FontAwesomeIcon
+                        icon={faPen}
+                        onClick={() => {
+                            let newText = prompt("Edit your task:");
+                            if (newText !== "") {
+                                props.dispatch({ type: "EDIT", id: item.id });
+                            }
+                        }}/>
                 </div>
             ))}
         </div>
