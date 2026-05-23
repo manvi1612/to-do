@@ -4,7 +4,7 @@
 Manitoba Institute of Trades and Technology  
 Software Development – SD-260  
 Assignment 3: To-do App  
-Student: Navjot Kaur  
+Student: Manvir Kaur  
 
 
 ## Project Description
