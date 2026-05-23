@@ -3,13 +3,14 @@ import {faCheck, faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 function ShowTasks(props) {
     return (
-        <div>
+        <div className="task">
             {props.tasks.map((item) => (
                 <div key={item.id}>
                     <h3 className={item.completed ? "completed" : ""}>
-  {item.text}
-</h3>
+                     {item.text}
+                    </h3>
                     <p>{item.date}</p>
+               <div className="icon">
                   <FontAwesomeIcon
                         icon={faCheck}
                         onClick={() =>
@@ -25,6 +26,7 @@ function ShowTasks(props) {
                         onClick={() =>
                             props.dispatch({ type: "DELETE", id: item.id })
                         }/>
+                </div>
                 </div>
             ))}
         </div>

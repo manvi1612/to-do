@@ -32,7 +32,7 @@ function NewTask(props) {
                 type="text"
                 value={taskName}
                 onChange={(event) => setTaskName(event.target.value)}
-                placeholder="Enter task"/>
+                placeholder="Enter your task"/>
                 <button>{props.editId ? "Update" : "Add"}</button>
         </form>
     );
