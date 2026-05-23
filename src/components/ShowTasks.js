@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faCheck, faPen } from "@fortawesome/free-solid-svg-icons";
+import {faCheck, faPen, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 function ShowTasks(props) {
     return (
@@ -21,6 +21,11 @@ function ShowTasks(props) {
                                 props.dispatch({ type: "EDIT", id: item.id });
                             }
                         }}/>
+                    <FontAwesomeIcon
+                        icon={faTrash}
+                        onClick={() =>
+                            props.dispatch({ type: "DELETE", id: item.id })
+                        }/>
                 </div>
             ))}
         </div>

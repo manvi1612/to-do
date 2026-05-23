@@ -10,10 +10,11 @@ function reducer(list, action) {
     case "COMPLETE":
       return list.map(function(item) {
         if (item.id === action.id) {
-            item.text = !item.completed;
+            item.completed = !item.completed;
         }
         return item;
     });
+
     case "EDIT":
       return list.map(function(item) {
         if (item.id === action.id) {
@@ -21,8 +22,14 @@ function reducer(list, action) {
             item.date = new Date().toLocaleString();
         }
         return item;
-  });
-    
+      });
+
+      case "DELETE":
+        return list.filter(function(item) {
+          if (item.id !== action.id) {
+              return item;
+          }
+        });
         default:
             return list;
   }
