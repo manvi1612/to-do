@@ -1,3 +1,6 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faCheck } from "@fortawesome/free-solid-svg-icons";
+
 function ShowTasks(props) {
     return (
         <div>
@@ -5,6 +8,11 @@ function ShowTasks(props) {
                 <div key={item.id}>
                     <h3>{item.text}</h3>
                     <p>{item.date}</p>
+                  <FontAwesomeIcon
+                        icon={faCheck}
+                        onClick={() =>
+                            props.dispatch({ type: "COMPLETE", id: item.id })
+                        }/>
                 </div>
             ))}
         </div>

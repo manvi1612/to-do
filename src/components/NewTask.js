@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function NewTask({ props }) {
+function NewTask(props) {
     const [taskName, setTaskName] = useState("");
     function addTask(event) {
         event.preventDefault();

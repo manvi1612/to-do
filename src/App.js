@@ -7,6 +7,13 @@ function reducer(list, action) {
   switch(action.type) {
     case "ADD":
       return [...list, action.Data];
+    case "COMPLETE":
+      return list.map(function(item) {
+        if (item.id === action.id) {
+            item.completed = !item.completed;
+        }
+        return item;
+    });
         default:
             return list;
   }
