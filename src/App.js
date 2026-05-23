@@ -1,4 +1,4 @@
-import { useReducer, useEffect } from "react";
+import { useReducer, useEffect, useState } from "react";
 import NewTask from "./components/NewTask";
 import ShowTasks from "./components/ShowTasks";
 
@@ -37,16 +37,24 @@ function reducer(list, action) {
 
 const saved = JSON.parse(localStorage.getItem("tasks")) || [];
 
+
 function App() {
     const [tasks, dispatch] = useReducer(reducer, saved);
+    const [editId, setEditId] = useState(null);
      useEffect(() => {
         localStorage.setItem("tasks", JSON.stringify(tasks));
     }, [tasks]);
     return (
         <div className="container">
             <h1>To-Do App</h1>
-            <NewTask dispatch={dispatch} />
-            <ShowTasks tasks={tasks} />
+            <NewTask 
+                  dispatch={dispatch} 
+                  editId={editId}
+                  setEditId={setEditId}/>
+            <ShowTasks 
+                  tasks={tasks} 
+                  dispatch={dispatch}
+                  setEditId={setEditId}/>
         </div>
     );
 }

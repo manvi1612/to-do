@@ -5,7 +5,16 @@ function NewTask(props) {
     function addTask(event) {
         event.preventDefault();
         if (taskName === "") return;
-        props.dispatch({
+        if (props.editId) {
+                props.dispatch({
+                type: "EDIT",
+                id: props.editId,
+                newText: taskName
+            });
+            props.setEditId(null);
+        }
+        else {
+            props.dispatch({
             type: "ADD",
             Data: {
                 id: Date.now(),
@@ -13,6 +22,7 @@ function NewTask(props) {
                 date: new Date().toLocaleString()
             }
         });
+    }
         setTaskName("");
     }
     return (
@@ -22,7 +32,7 @@ function NewTask(props) {
                 value={taskName}
                 onChange={(event) => setTaskName(event.target.value)}
                 placeholder="Enter task"/>
-            <button>Add Task</button>
+                <button>{props.editId ? "Update" : "Add"}</button>
         </form>
     );
 }

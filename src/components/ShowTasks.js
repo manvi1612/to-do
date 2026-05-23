@@ -15,11 +15,9 @@ function ShowTasks(props) {
                         }/>
                     <FontAwesomeIcon
                         icon={faPen}
-                        onClick={() => {
-                            let newText = prompt("Edit your task:");
-                            if (newText !== "") {
-                                props.dispatch({ type: "EDIT", id: item.id });
-                            }
+                         onClick={() => {
+                            props.setEditId(item.id);
+                            props.setEditValue?.(item.text)
                         }}/>
                     <FontAwesomeIcon
                         icon={faTrash}
